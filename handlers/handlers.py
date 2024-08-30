@@ -77,6 +77,22 @@ async def input_city(message: Message, state: FSMContext):
     await state.clear()
     await message.answer(f"Готово! Теперь ваш город это: {user_city}", reply_markup=main_kb)
 
+@router.message(F.data == "Назад")
+async def back(message: Message):
+    await message.answer("""
+    Привет! 👋 Я твой личный бот-погодник. 🌤️
+
+Напиши мне название города или выбери одну из команд ниже, чтобы узнать погоду!
+
+Я могу:
+- Показать текущую погоду.
+- Отправлять тебе ежедневные уведомления с погодой.
+- И многое другое!
+
+Выбери, что тебя интересует:
+
+    """, reply_markup=main_kb)
+
 @router.callback_query(F.data == "add_user_city")
 async def change_city_inline(callback_query: CallbackQuery, state: FSMContext):
     await callback_query.message.answer("Напишите свой город")
@@ -98,15 +114,6 @@ async def get_city_inline(message: Message, state: FSMContext):
     await state.clear()
     await message.answer(f"Готово! Теперь ваш город это: {user_city}", reply_markup=main_kb)
 
-@router.message(F.text == "Настройка уведомлений")
-async def notification_settings(message: Message):
-    user_id = message.from_user.id
-
-    if has_city(user_id):
-        city = get_city(user_id)
-        await subcribe(city, message)
-    else:
-        await message.answer("У вас не добавлен город", reply_markup=add_city_kb)
 
 @router.message(F.text == "Отзыв | связь с разработчиком")
 async def help(message: Message, state: FSMContext):
