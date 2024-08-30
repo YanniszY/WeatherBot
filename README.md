@@ -22,10 +22,21 @@ git clone https://github.com/ваш-логин/имя-репозитория.git
 pip install -r requirements.txt
 ```
 
-3. Настройка бота
+### 3. Настройка бота
 
    - Получите токен вашего Telegram-бота через BotFather.
    - Создайте файл или отредактируйте файл .env в корневой папке проекта и добавьте в него ваш токен:
    ```
    BOT_TOKEN="YOUR TOKEN"
    ```
+   - Вставтье свой API ключ в request/request.py (его можно получить на сайте openweathermap)
+   - Напишите свой user id в файле handlers/handlers.py (строка 128)
+
+### 4. Запуск бота
+
+## Запустите бота командой:
+
+```
+python bot.py
+```
+
