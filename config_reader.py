@@ -1,14 +1,5 @@
-import pydantic
-from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import SecretStr
+import os
+from dotenv import load_dotenv
 
-
-class Setting(BaseSettings):
-    bot_token: SecretStr
-    model_config: SettingsConfigDict = SettingsConfigDict(
-        env_file = ".env",
-        env_file_encoding="utf-8"
-    )
-
-
-config = Setting()
+load_dotenv()
+BOT_TOKEN = os.getenv('BOT_TOKEN')
