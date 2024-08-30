@@ -8,7 +8,7 @@ from database.db import *
 
 
 # Замените YOUR_API_KEY на ваш реальный API-ключ от OpenWeatherMap
-api_key = "5ca44a21a4f90b2d9ccf41c12e708cff"
+api_key = ""
 url = "http://api.openweathermap.org/data/2.5/weather"
 one_call_url = "https://api.openweathermap.org/data/3.0/onecall"
 
