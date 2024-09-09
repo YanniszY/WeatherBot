@@ -30,7 +30,13 @@ pip install -r requirements.txt
    BOT_TOKEN="YOUR TOKEN"
    ```
    - Вставтье свой API ключ в request/request.py (его можно получить на сайте openweathermap)
-   - Напишите свой user id в файле handlers/handlers.py (строка 128)
+   ```
+   api_key = ""
+   ```
+   - Напишите свой user id в файле handlers/handlers.py (строка 135)
+   ```
+   owner_id = 0 # your telegram id
+   ```
 
 ### 4. Запуск бота
 
